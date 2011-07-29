@@ -24,6 +24,7 @@ REQUIREMENTS
 
    Package that will be required in the final version :
           - PostgreSQL >= 8.4
+          - py-postgresql >= 1.0.2 (http://python.projects.postgresql.org/)
 
    You also need IGS-term installed on a client computer or directly on the 
    server (https://github.com/Guillaume35/IGS-Terminal).
