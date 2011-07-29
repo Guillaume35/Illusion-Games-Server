@@ -1,0 +1,48 @@
+   IGS (Illusion Games Server) is a server that manage multi-players online games.
+
+   This program is under GNU GPL licence Version 3. See http://www.gnu.org/licenses/ 
+   to read the entire licence.
+
+
+   The program is still in active development.
+
+
+PATH STRUCTURE
+
+   sources/
+          Sources of the program
+
+
+REQUIREMENTS
+
+   This program is developed under Ubuntu 11.04 and Ubuntu 11.10.
+   It is also maintained on Debian 6.
+   Others Linux distributions must be compatible but are not maintained.
+
+   Actually required packages :
+          - Python3.2
+
+   Package that will be required in the final version :
+          - PostgreSQL >= 8.4
+
+   You also need IGS-term installed on a client computer or directly on the 
+   server (https://github.com/Guillaume35/IGS-Terminal).
+
+
+TEST THE PROGRAM
+
+   Actually, the program is not in a testing phase.
+
+
+DEVELOP THE PROGRAM
+
+   Program sources are contained in the sources/ directory. You can be involved 
+   in igsterm development in many ways :
+          - Create new functions
+          - Correct language, syntax and expression
+
+
+CREATE PACKAGE
+
+   There are no way to create package for now. IGS can be test directly from the 
+   working directory.
