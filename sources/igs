@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /opt/illusion/igs
+python3.2 igs.py

@@ -1,0 +1,8 @@
+# This file contain unabled igs modules.
+# IGS modules are contained in /igsmods/ by default
+# 
+# To enable a new module, just add a new line in this file with the module name
+# The module must exist in /igsmods/
+# To disable a module, remove it from the file or comment its line.
+
+session

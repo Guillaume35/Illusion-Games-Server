@@ -1,0 +1,16 @@
+# HOST & PORT determine the uri or ip adress of the server and
+# which port the server will lisent to.
+# You need to restart IGS after editing this value
+HOST="0.0.0.0"
+PORT="5462"
+
+# Specify the level of security for the server :
+#	"0"	> Server is open
+#	"1"	> Server require autentification for admin tasks
+#	"2"	> Server require autentification for every tasks
+#	"3"	> Server is localhost only
+#	"01"	> Server is open, require autentification for admin tasks
+#	"02"	> Server is open, require autentification for every tasks
+#	"31"	> Server is localhost only and require autentification for admin tasks
+#	"32"	> Server is localhost only and require autentification for every tasks
+SECURITY="31"
