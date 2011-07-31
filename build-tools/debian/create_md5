@@ -1,0 +1,21 @@
+#!/bin/bash
+ 
+cd $1
+ 
+# Deleting temporary files
+echo "Deleting temporary files."
+for file in `find . -name "*~"`
+do
+	echo "Deleting ${file}"
+	rm $file
+done
+ 
+# Calculating new checksums
+echo "Creating checksum file."
+md5sum `find . -type f` > DEBIAN/md5sums
+ 
+# Deleting strings with DEBIAN substring
+echo "Deleting path prefixes."
+sed -e '/DEBIAN/d' -e 's/\.\///g' DEBIAN/md5sums > temp
+cp temp DEBIAN/md5sums
+rm temp

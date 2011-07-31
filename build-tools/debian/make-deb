@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd $1
+
+# Creating deb package
+fakeroot dpkg-deb --build debian
+dpkg-name debian.deb

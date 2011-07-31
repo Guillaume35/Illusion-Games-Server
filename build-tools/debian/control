@@ -1,0 +1,10 @@
+Package: igs
+Version: 1.0.0unstable
+Architecture: all
+Maintainer: Guillaume Modard <guillaumemodard@gmail.com>
+Depends: bash, python3.2
+Section: net
+Priority: optional
+Installed-Size: 40
+Description: IGS is a server for multi-player online games
+ IGS (Illusion Games Server) is a server that manage multi-player online games.

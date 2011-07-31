@@ -15,6 +15,9 @@ PATH STRUCTURE
    lib/
           Libraries used by IGS. These libraries can be required for IGS works 
           properly.
+   
+   build-tools/
+          Tools to build IGS : package informations, construct...
 
 
 REQUIREMENTS
@@ -50,5 +53,15 @@ DEVELOP THE PROGRAM
 
 CREATE PACKAGE
 
-   There are no way to create package for now. IGS can be test directly from the 
-   working directory.
+   Use build.conf to configure how the program will be build, and how it will 
+   be installed on the computer.
+   
+   If you want a debian package, you can edit package information in file 
+   build-tools/debian/control
+   
+   Run build (execute it in a terminal) :
+          cd /path/to/igs
+          ./build
+   Or :
+          cd /path/to/igs
+          python3 build.py
