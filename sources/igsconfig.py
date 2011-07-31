@@ -1,9 +1,9 @@
-import re
+import re, path
 
 def get(val):
 	"""Return config value"""
-	
-	f = open('config', 'r')
+
+	f = open(path.get("config"), 'r')
 	
 	for line in f:
 		if re.search("^"+val+"=", line):
