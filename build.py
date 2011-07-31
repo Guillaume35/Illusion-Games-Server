@@ -71,11 +71,12 @@ def create_structure(DIR, STRUCTURE, REPATH):
 		if re.search(r"^[\w/]+\s*=", line):
 			path = re.sub (r'^([\w/]+)\s*=.*\n$', r"\1", line)
 			
-			if path not in created and path != '' and not re.search(r'^\s*$', path):
+			if path != '' and not re.search(r'^\s*$', path):
 				try:
-					# Create dir in structure
-					os.makedirs(root_path+path)
-					print (root_path+path+" created!")
+					if path not in created:
+						# Create dir in structure
+						os.makedirs(root_path+path)
+						print (root_path+path+" created!")
 					
 					# Add files in dir
 					files = re.sub(r'^[\w/]+\s*=\s*(.*)\n$', r'\1', line)
@@ -85,12 +86,19 @@ def create_structure(DIR, STRUCTURE, REPATH):
 					files_ls = files.split(' ')
 					
 					for fl in files_ls:
+						if re.search(r'>', fl):
+							fl_rname = fl.split('>')
+							fl = fl_rname[0]
+							fl_new = fl_rname[1]
+						else:
+							fl_new = fl
+						
 						if os.path.exists('sources/'+fl) and fl not in copied_files.keys():
 							if os.path.isdir('sources/'+fl):
 								try:
-									shutil.copytree('sources/'+fl, root_path+path+fl)
+									shutil.copytree('sources/'+fl, root_path+path+fl_new)
 									print ('Copy directory sources/%s > %s/%s' % (fl, root_path, path))
-									copied_files[fl] = root_path+path+fl
+									copied_files[fl] = root_path+path+fl_new
 								except:
 									print ('ER: Unable to copy dir sources/%s > %s/%s' % (fl,root_path,path))
 									if not r1 == 'yes for all':
@@ -102,9 +110,10 @@ def create_structure(DIR, STRUCTURE, REPATH):
 											return 0
 							else:
 								try:
-									shutil.copy('sources/'+fl, root_path+path)
+									just_fl = re.sub(r'^.*/([\w\.-]+)$', r'\1', fl_new)
+									shutil.copy('sources/'+fl, root_path+path+just_fl)
 									print ('Copy file sources/%s > %s/%s' % (fl, root_path, path))
-									copied_files[fl] = root_path+path+fl
+									copied_files[fl] = root_path+path+just_fl
 								except:
 									print ('ER: Unable to copy file sources/%s > %s/%s' % (fl,root_path,path))
 									if not r1 == 'yes for all':

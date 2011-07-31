@@ -7,12 +7,15 @@
 # 	/dir1/dir2/=file1 file2
 # In both cases, the last / is important.
 # 
-# Indicate a directory for a file and change its name :
-# 	/dir1/dir2/newfile.py=oldfile.py
+# Change the name of the file after the copy :
+# 	/dir1/dir2/=oldname>newname
+# No whitespace before and after ">". Whitespace should be only 
+# used to separate files.
 
 # Files that are imported in IGS with read()
 /etc/igs/		= config registered-mods
 
 # IGS modules
-/usr/share/igs/		= igs.py igsconfig.py superuser.py igsmods
-/usr/bin/ 		= igs
+/usr/share/igs/		= igs.py igsconfig.py superuser.py
+/usr/share/igs/igsmods/	= igsmods/session.py
+/usr/bin/ 		= igs-linux>igs

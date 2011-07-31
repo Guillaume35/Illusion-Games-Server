@@ -1,4 +1,5 @@
-import socket, threading, igsconfig, re
+import socket, threading, re
+import igsconfig, path
 
 # initializing
 REGISTERED_MODS = []
@@ -69,7 +70,7 @@ def update_registered_mods():
 	global REGISTERED_MODS
 	REGISTERED_MODS = [] # re-initializing REGISTERED_MODS
 	
-	f = open('registered-mods', 'r')
+	f = open(path.get('registered-mods'), 'r')
 	
 	for line in f:
 		mod = re.sub(r'\s*$', '', line)
