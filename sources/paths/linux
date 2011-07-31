@@ -1,0 +1,18 @@
+# This file is used to configure IGS progam before install. Use
+# build.py and build.conf.
+#
+# Indicate a directory for a file :
+# 	/dir1/dir2/=file
+# Indicate the same directory for multiple files :
+# 	/dir1/dir2/=file1 file2
+# In both cases, the last / is important.
+# 
+# Indicate a directory for a file and change its name :
+# 	/dir1/dir2/newfile.py=oldfile.py
+
+# Files that are imported in IGS with read()
+/etc/igs/		= config registered-mods
+
+# IGS modules
+/usr/share/igs/		= igs.py igsconfig.py superuser.py igsmods
+/usr/bin/ 		= igs
