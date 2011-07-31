@@ -1,0 +1,21 @@
+# This file is used to configure IGS progam before install. Use
+# build.py and build.conf.
+#
+# Indicate a directory for a file :
+# 	/dir1/dir2/=file
+# Indicate the same directory for multiple files :
+# 	/dir1/dir2/=file1 file2
+# In both cases, the last / is important.
+# 
+# Change the name of the file after the copy :
+# 	/dir1/dir2/=oldname>newname
+# No whitespace before and after ">". Whitespace should be only 
+# used to separate files.
+
+# Files that are imported in IGS with read()
+/opt/illusion/igs/ 		= config registered-mods
+
+# IGS modules
+/opt/illusion/igs/		= igs.py igsconfig.py superuser.py
+/opt/illusion/igs/igsmods/ 	= igsmods/session.py
+/opt/illusion/igs/ 		= igs
