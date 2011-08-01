@@ -1,7 +1,8 @@
-   IGS (Illusion Games Server) is a server that manage multi-players online games.
+   IGS (Illusion Games Server) is a server that manage multi-players
+   online games.
 
-   This program is under GNU GPL licence Version 3. See http://www.gnu.org/licenses/ 
-   to read the entire licence.
+   This program is under GNU GPL licence Version 3. See 
+   http://www.gnu.org/licenses/ to read the entire licence.
 
 
    The program is still in active development.
@@ -13,8 +14,8 @@ PATH STRUCTURE
           Sources of the program
 
    lib/
-          Libraries used by IGS. These libraries can be required for IGS works 
-          properly.
+          Libraries used by IGS. These libraries can be required for
+          IGS works properly.
    
    build-tools/
           Tools to build IGS : package informations, construct...
@@ -31,11 +32,12 @@ REQUIREMENTS
 
    Package that will be required in the final version :
           - PostgreSQL >= 8.4
-          - py-postgresql >= 1.0.2 (http://python.projects.postgresql.org/)
+          - py-postgresql >= 1.0.2
+            (http://python.projects.postgresql.org/)
             archive available in lib/py-postgresql-1.0.2.tar.gz
 
-   You also need IGS-term installed on a client computer or directly on the 
-   server (https://github.com/Guillaume35/IGS-Terminal).
+   You also need IGS-term installed on a client computer or directly 
+   on the server (https://github.com/Guillaume35/IGS-Terminal).
 
 
 TEST THE PROGRAM
@@ -45,19 +47,38 @@ TEST THE PROGRAM
 
 DEVELOP THE PROGRAM
 
-   Program sources are contained in the sources/ directory. You can be involved 
-   in igsterm development in many ways :
+   Program sources are contained in the sources/ directory. You can be
+   involved in igs development in many ways :
           - Create new functions
           - Correct language, syntax and expression
+   
+   * Notes about developping IGS :
+   
+   - IGS is based on a dynamic path system for configuration file. If 
+   you want to open() a file in a script, use the folowing tool :
+   
+   	import path
+   	f = open(path.get('config'), 'r')
+   
+   - If you create a new file in the program structure (config file or 
+   script), you have to add it on paths/linux and paths/opt files.
+   These files are used create non-dynamic path during the build.
 
 
 CREATE PACKAGE
 
-   Use build.conf to configure how the program will be build, and how it will 
-   be installed on the computer.
+   Use build.conf to configure how the program will be build, and how
+   it will be installed on the computer.
    
-   If you want a debian package, you can edit package information in file 
-   build-tools/debian/control
+   If you want a debian package, you can edit package information in
+   file build-tools/debian/control
+   
+   Make sure the folowing program are executable :
+          - build
+          - build-tools/create_tar
+          - build-tools/debian/create_md5
+          - build-tools/debian/install
+          - build-tools/debian/make-deb
    
    Run build (execute it in a terminal) :
           cd /path/to/igs

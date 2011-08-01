@@ -17,5 +17,5 @@
 
 # IGS modules
 /opt/illusion/igs/		= igs.py igsconfig.py superuser.py
-/opt/illusion/igs/igsmods/ 	= igsmods/session.py
+/opt/illusion/igs/igsmods/ 	= igsmods/session.py igsmods/__init__.py
 /opt/illusion/igs/ 		= igs
