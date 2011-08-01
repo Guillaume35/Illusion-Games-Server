@@ -16,6 +16,6 @@
 /etc/igs/		= config registered-mods
 
 # IGS modules
-/usr/share/igs/		= igs.py igsconfig.py superuser.py
+/usr/share/igs/		= igs.py igsconfig.py superuser.py path.py
 /usr/share/igs/igsmods/	= igsmods/session.py igsmods/__init__.py
 /usr/bin/ 		= igs-linux>igs
