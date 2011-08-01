@@ -19,3 +19,6 @@
 /usr/share/igs/		= igs.py igsconfig.py superuser.py path.py
 /usr/share/igs/igsmods/	= igsmods/session.py igsmods/__init__.py
 /usr/bin/ 		= igs-linux>igs
+
+# Demon file for debian
+/etc/init.d/		= init.d/igs

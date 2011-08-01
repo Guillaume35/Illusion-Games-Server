@@ -1,0 +1,5 @@
+#!/bin/bash
+
+chmod +x /etc/init.d/igs
+update-rc.d igs defaults
+/etc/init.d/igs start

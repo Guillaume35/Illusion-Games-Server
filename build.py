@@ -68,8 +68,8 @@ def create_structure(DIR, STRUCTURE, REPATH):
 	r1 = ''
 	
 	for line in f:
-		if re.search(r"^[\w/]+\s*=", line):
-			path = re.sub (r'^([\w/]+)\s*=.*\n$', r"\1", line)
+		if re.search(r"^[\w/\.]+\s*=", line):
+			path = re.sub (r'^([\w/\.]+)\s*=.*\n$', r"\1", line)
 			
 			if path != '' and not re.search(r'^\s*$', path):
 				try:
@@ -79,7 +79,7 @@ def create_structure(DIR, STRUCTURE, REPATH):
 						print (root_path+path+" created!")
 					
 					# Add files in dir
-					files = re.sub(r'^[\w/]+\s*=\s*(.*)\n$', r'\1', line)
+					files = re.sub(r'^[\w/\.]+\s*=\s*(.*)\n$', r'\1', line)
 					files = re.sub(r'^\s*', '', files)
 					files = re.sub(r'\s*$', '', files) #TODO : maybe one exp only
 					
@@ -212,6 +212,8 @@ def mk_deb(DIR):
 	
 	try:
 		shutil.copy('build-tools/debian/control', deb_dir+'/DEBIAN')
+		shutil.copy('build-tools/debian/perm', deb_dir+'/DEBIAN')
+		shutil.copy('build-tools/debian/postinst', deb_dir+'/DEBIAN')
 	except:
 		print ('ER: I/O error, unable to copy build-tools/debian/control')
 		return 0
