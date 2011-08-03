@@ -1,9 +1,12 @@
 import socket, threading, re
-import igsconfig, path
+import igsconfig, path, regmods
 
 # initializing
-REGISTERED_MODS = []
+REGISTERED_MODS = regmods.get() # Registered modules
 CLIENTS = {} # connected clients
+
+for mod in REGISTERED_MODS:
+	__import__('igsmods.'+mod)
 
 class Client(threading.Thread):
 	"""Accept and manage connection with a new client"""
@@ -41,7 +44,6 @@ class Client(threading.Thread):
 			
 				if mod in REGISTERED_MODS:
 					try:
-						exec ("import igsmods."+mod) # TODO : Create a list at the beginning of the program and use __import__ in stead of exec
 						r = eval(qstr)
 					except:
 						r = 'ER: There where a problem in your command execution. Check the syntax'
@@ -68,18 +70,11 @@ def update_registered_mods():
 	"""Make a list with all enabled igs mods"""
 	
 	global REGISTERED_MODS
-	REGISTERED_MODS = [] # re-initializing REGISTERED_MODS
 	
-	f = open(path.get('registered-mods'), 'r')
+	REGISTERED_MODS = regmods.get()
 	
-	for line in f:
-		mod = re.sub(r'\s*$', '', line)
-		mod = re.sub(r'^\s*', '', mod)
-		
-		if not re.search(r'^#', mod) and re.search(r'^\w+$', mod) and mod not in REGISTERED_MODS:
-			REGISTERED_MODS.append(mod)
-	
-	f.close()
+	for mod in REGISTERED_MODS:
+		__import__('igsmods.'+mod)
 	
 	return REGISTERED_MODS
 

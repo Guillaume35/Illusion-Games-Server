@@ -12,7 +12,7 @@ def open(user,password):
 		p = re.sub(r"\s$", "", p)
 		
 		if p == password:
-			r
+			r = 'Loged as %s' % user
 		
 		else:
 			r = 'ER: Invalid user/password'

@@ -28,7 +28,8 @@ REQUIREMENTS
    Others Linux distributions must be compatible but are not maintained.
 
    Actually required packages :
-          - Python3.2
+          - Python >= 3.0
+          - python-pam
    
    Required packages for debian build :
           - fakeroot
